@@ -18,6 +18,11 @@ module mario (
 );
 
 
+`define BLOCK(X_POS, Y_POS) \
+	end else if ((((gnd_dist <= X_POS) && (x_loc >= X_POS - gnd_dist)) || ((gnd_dist > X_POS) && (gnd_dist <= X_POS + BRICK_WIDTH) && (x_loc <= BRICK_WIDTH))) \
+		&& (x_loc < X_POS + BRICK_WIDTH - gnd_dist) && (y_loc >= Y_POS) && (y_loc < Y_POS + BRICK_WIDTH)) begin rgb = 3'b100;
+
+
 wire locked;
 wire sys_rst_n;
 assign sys_rst_n = locked & rst_n;
@@ -385,10 +390,14 @@ always @ (*) begin
 		rgb[0] = 0;	
 
 		// draw brick in the air
-	end else if ((x_loc >= 320 - gnd_dist) && (x_loc < 320 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
+	end else if ((((gnd_dist <= 320) && (x_loc >= 320 - gnd_dist)) || ((gnd_dist > 320) && (gnd_dist <= 320 + BRICK_WIDTH) && (x_loc <= BRICK_WIDTH))) 
+		&& (x_loc < 320 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
 
-	end else if ((x_loc >= 400 - gnd_dist) && (x_loc < 400 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
-	end else if ((x_loc >= 440 - gnd_dist) && (x_loc < 440 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
+	end else if ((((gnd_dist <= 400) && (x_loc >= 400 - gnd_dist)) || ((gnd_dist > 400) && (gnd_dist <= 400 + BRICK_WIDTH) && (x_loc <= BRICK_WIDTH)))
+		&& (x_loc < 400 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
+
+	`BLOCK(440, 240)	
+/*	end else if ((x_loc >= 440 - gnd_dist) && (x_loc < 440 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
 	end else if ((x_loc >= 480 - gnd_dist) && (x_loc < 480 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
 	end else if ((x_loc >= 520 - gnd_dist) && (x_loc < 520 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
 	end else if ((x_loc >= 560 - gnd_dist) && (x_loc < 560 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
@@ -401,7 +410,9 @@ always @ (*) begin
 	end else if ((x_loc >= 840 - gnd_dist) && (x_loc < 840 + BRICK_WIDTH - gnd_dist) && (y_loc >= 320) && (y_loc < 320 + BRICK_WIDTH)) begin rgb = 3'b110;
 	end else if ((x_loc >= 840 - gnd_dist) && (x_loc < 840 + BRICK_WIDTH - gnd_dist) && (y_loc >= 280) && (y_loc < 280 + BRICK_WIDTH)) begin rgb = 3'b110;
 	end else if ((x_loc >= 840 - gnd_dist) && (x_loc < 840 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b110;
-
+*/
+	
+	
 //	end else if ((x_loc >= 320 - gnd_dist) && (x_loc < 320 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
 //	end else if ((x_loc >= 320 - gnd_dist) && (x_loc < 320 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;
 //	end else if ((x_loc >= 320 - gnd_dist) && (x_loc < 320 + BRICK_WIDTH - gnd_dist) && (y_loc >= 240) && (y_loc < 240 + BRICK_WIDTH)) begin rgb = 3'b100;

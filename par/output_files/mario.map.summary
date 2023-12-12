@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue Dec 12 22:46:44 2023
+Analysis & Synthesis Status : Successful - Wed Dec 13 01:21:13 2023
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : mario
 Top-level Entity Name : mario
 Family : Cyclone IV E
-Total logic elements : 1,019
-    Total combinational functions : 1,018
+Total logic elements : 883
+    Total combinational functions : 882
     Dedicated logic registers : 192
 Total registers : 192
 Total pins : 23

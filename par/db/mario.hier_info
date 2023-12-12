@@ -1,27 +1,27 @@
 |mario
 clk => clk.IN3
 rst_n => rst_n.IN2
-dig[0] << disp:u_disp.dig
-dig[1] << disp:u_disp.dig
-dig[2] << disp:u_disp.dig
-dig[3] << disp:u_disp.dig
-seg[0] << disp:u_disp.seg
-seg[1] << disp:u_disp.seg
-seg[2] << disp:u_disp.seg
-seg[3] << disp:u_disp.seg
-seg[4] << disp:u_disp.seg
-seg[5] << disp:u_disp.seg
-seg[6] << disp:u_disp.seg
-seg[7] << disp:u_disp.seg
+dig[0] <= disp:u_disp.dig
+dig[1] <= disp:u_disp.dig
+dig[2] <= disp:u_disp.dig
+dig[3] <= disp:u_disp.dig
+seg[0] <= disp:u_disp.seg
+seg[1] <= disp:u_disp.seg
+seg[2] <= disp:u_disp.seg
+seg[3] <= disp:u_disp.seg
+seg[4] <= disp:u_disp.seg
+seg[5] <= disp:u_disp.seg
+seg[6] <= disp:u_disp.seg
+seg[7] <= disp:u_disp.seg
 key[0] => key[0].IN1
 key[1] => key[1].IN1
 key[2] => key[2].IN1
 key[3] => key[3].IN1
-vga_hs << vga_driver:u_vga_driver.vga_hs
-vga_vs << vga_driver:u_vga_driver.vga_vs
-vga_rgb[0] << vga_driver:u_vga_driver.vga_rgb
-vga_rgb[1] << vga_driver:u_vga_driver.vga_rgb
-vga_rgb[2] << vga_driver:u_vga_driver.vga_rgb
+vga_hs <= vga_driver:u_vga_driver.vga_hs
+vga_vs <= vga_driver:u_vga_driver.vga_vs
+vga_rgb[0] <= vga_driver:u_vga_driver.vga_rgb
+vga_rgb[1] <= vga_driver:u_vga_driver.vga_rgb
+vga_rgb[2] <= vga_driver:u_vga_driver.vga_rgb
 
 
 |mario|disp:u_disp

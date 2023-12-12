@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mario
-Tue Dec 12 22:46:44 2023
+Wed Dec 13 01:21:13 2023
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -56,13 +56,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 12 22:46:44 2023          ;
+; Analysis & Synthesis Status        ; Successful - Wed Dec 13 01:21:13 2023          ;
 ; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                      ; mario                                          ;
 ; Top-level Entity Name              ; mario                                          ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 1,019                                          ;
-;     Total combinational functions  ; 1,018                                          ;
+; Total logic elements               ; 883                                            ;
+;     Total combinational functions  ; 882                                            ;
 ;     Dedicated logic registers      ; 192                                            ;
 ; Total registers                    ; 192                                            ;
 ; Total pins                         ; 23                                             ;
@@ -201,17 +201,17 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 1,019     ;
+; Estimated Total logic elements              ; 883       ;
 ;                                             ;           ;
-; Total combinational functions               ; 1018      ;
+; Total combinational functions               ; 882       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 312       ;
-;     -- 3 input functions                    ; 320       ;
-;     -- <=2 input functions                  ; 386       ;
+;     -- 4 input functions                    ; 311       ;
+;     -- 3 input functions                    ; 257       ;
+;     -- <=2 input functions                  ; 314       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 516       ;
-;     -- arithmetic mode                      ; 502       ;
+;     -- normal mode                          ; 506       ;
+;     -- arithmetic mode                      ; 376       ;
 ;                                             ;           ;
 ; Total registers                             ; 192       ;
 ;     -- Dedicated logic registers            ; 192       ;
@@ -226,8 +226,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 172       ;
-; Total fan-out                               ; 3653      ;
-; Average fan-out                             ; 2.91      ;
+; Total fan-out                               ; 3330      ;
+; Average fan-out                             ; 2.97      ;
 +---------------------------------------------+-----------+
 
 
@@ -236,14 +236,14 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                   ; Entity Name ; Library Name ;
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------+-------------+--------------+
-; |mario                               ; 1018 (776)          ; 192 (89)                  ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |mario                                                                ; mario       ; work         ;
+; |mario                               ; 882 (647)           ; 192 (89)                  ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |mario                                                                ; mario       ; work         ;
 ;    |disp:u_disp|                     ; 86 (1)              ; 39 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mario|disp:u_disp                                                    ; disp        ; work         ;
 ;       |led:u_led|                    ; 85 (85)             ; 39 (39)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mario|disp:u_disp|led:u_led                                          ; led         ; work         ;
 ;    |key:u_key|                       ; 58 (58)             ; 43 (43)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mario|key:u_key                                                      ; key         ; work         ;
 ;    |pll:pll_inst|                    ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mario|pll:pll_inst                                                   ; pll         ; work         ;
 ;       |altpll:altpll_component|      ; 0 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mario|pll:pll_inst|altpll:altpll_component                           ; altpll      ; work         ;
 ;          |pll_altpll:auto_generated| ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mario|pll:pll_inst|altpll:altpll_component|pll_altpll:auto_generated ; pll_altpll  ; work         ;
-;    |vga_driver:u_vga_driver|         ; 98 (98)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mario|vga_driver:u_vga_driver                                        ; vga_driver  ; work         ;
+;    |vga_driver:u_vga_driver|         ; 91 (91)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mario|vga_driver:u_vga_driver                                        ; vga_driver  ; work         ;
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -867,20 +867,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SCLR              ; 72                          ;
 ;     SLD               ; 7                           ;
 ;     plain             ; 13                          ;
-; cycloneiii_lcell_comb ; 1020                        ;
-;     arith             ; 502                         ;
-;         2 data inputs ; 273                         ;
-;         3 data inputs ; 229                         ;
-;     normal            ; 518                         ;
-;         0 data inputs ; 20                          ;
+; cycloneiii_lcell_comb ; 884                         ;
+;     arith             ; 376                         ;
+;         2 data inputs ; 217                         ;
+;         3 data inputs ; 159                         ;
+;     normal            ; 508                         ;
+;         0 data inputs ; 13                          ;
 ;         1 data inputs ; 11                          ;
-;         2 data inputs ; 84                          ;
-;         3 data inputs ; 91                          ;
-;         4 data inputs ; 312                         ;
+;         2 data inputs ; 75                          ;
+;         3 data inputs ; 98                          ;
+;         4 data inputs ; 311                         ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 12.40                       ;
-; Average LUT depth     ; 7.29                        ;
+; Average LUT depth     ; 6.78                        ;
 +-----------------------+-----------------------------+
 
 
@@ -889,7 +889,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -899,7 +899,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Tue Dec 12 22:46:35 2023
+    Info: Processing started: Wed Dec 13 01:21:05 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mario -c mario
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
@@ -915,32 +915,32 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: vga_driver File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/vga_driver.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ipcore/pll.v
     Info (12023): Found entity 1: pll File: C:/Users/JasonLiang/git/FPGA_Mario/par/ipcore/pll.v Line: 40
-Warning (10236): Verilog HDL Implicit Net warning at mario.v(492): created implicit net for "c0_sig" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 492
+Warning (10236): Verilog HDL Implicit Net warning at mario.v(503): created implicit net for "c0_sig" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 503
 Info (12127): Elaborating entity "mario" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at mario.v(446): object "key_out_d" assigned a value but never read File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 446
-Warning (10230): Verilog HDL assignment warning at mario.v(163): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 163
-Warning (10230): Verilog HDL assignment warning at mario.v(222): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 222
-Warning (10230): Verilog HDL assignment warning at mario.v(227): truncated value with size 32 to match size of target (30) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 227
-Warning (10230): Verilog HDL assignment warning at mario.v(244): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 244
-Warning (10230): Verilog HDL assignment warning at mario.v(247): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 247
-Warning (10230): Verilog HDL assignment warning at mario.v(264): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 264
+Warning (10036): Verilog HDL or VHDL warning at mario.v(457): object "key_out_d" assigned a value but never read File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 457
+Warning (10230): Verilog HDL assignment warning at mario.v(168): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 168
+Warning (10230): Verilog HDL assignment warning at mario.v(227): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 227
+Warning (10230): Verilog HDL assignment warning at mario.v(232): truncated value with size 32 to match size of target (30) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 232
+Warning (10230): Verilog HDL assignment warning at mario.v(249): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 249
+Warning (10230): Verilog HDL assignment warning at mario.v(252): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 252
 Warning (10230): Verilog HDL assignment warning at mario.v(269): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 269
-Warning (10230): Verilog HDL assignment warning at mario.v(283): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 283
-Warning (10230): Verilog HDL assignment warning at mario.v(291): truncated value with size 32 to match size of target (30) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 291
-Warning (10230): Verilog HDL assignment warning at mario.v(320): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 320
-Warning (10230): Verilog HDL assignment warning at mario.v(324): truncated value with size 32 to match size of target (6) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 324
-Warning (10230): Verilog HDL assignment warning at mario.v(329): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 329
-Warning (10230): Verilog HDL assignment warning at mario.v(333): truncated value with size 32 to match size of target (6) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 333
-Warning (10230): Verilog HDL assignment warning at mario.v(335): truncated value with size 32 to match size of target (6) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 335
-Warning (10230): Verilog HDL assignment warning at mario.v(339): truncated value with size 32 to match size of target (30) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 339
-Warning (10230): Verilog HDL assignment warning at mario.v(444): truncated value with size 32 to match size of target (6) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 444
-Warning (10230): Verilog HDL assignment warning at mario.v(463): truncated value with size 32 to match size of target (31) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 463
-Info (12128): Elaborating entity "disp" for hierarchy "disp:u_disp" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 479
+Warning (10230): Verilog HDL assignment warning at mario.v(274): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 274
+Warning (10230): Verilog HDL assignment warning at mario.v(288): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 288
+Warning (10230): Verilog HDL assignment warning at mario.v(296): truncated value with size 32 to match size of target (30) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 296
+Warning (10230): Verilog HDL assignment warning at mario.v(325): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 325
+Warning (10230): Verilog HDL assignment warning at mario.v(329): truncated value with size 32 to match size of target (6) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 329
+Warning (10230): Verilog HDL assignment warning at mario.v(334): truncated value with size 32 to match size of target (10) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 334
+Warning (10230): Verilog HDL assignment warning at mario.v(338): truncated value with size 32 to match size of target (6) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 338
+Warning (10230): Verilog HDL assignment warning at mario.v(340): truncated value with size 32 to match size of target (6) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 340
+Warning (10230): Verilog HDL assignment warning at mario.v(344): truncated value with size 32 to match size of target (30) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 344
+Warning (10230): Verilog HDL assignment warning at mario.v(455): truncated value with size 32 to match size of target (6) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 455
+Warning (10230): Verilog HDL assignment warning at mario.v(474): truncated value with size 32 to match size of target (31) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 474
+Info (12128): Elaborating entity "disp" for hierarchy "disp:u_disp" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 490
 Info (12128): Elaborating entity "led" for hierarchy "disp:u_disp|led:u_led" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/disp.v Line: 85
 Warning (10230): Verilog HDL assignment warning at led.v(30): truncated value with size 32 to match size of target (28) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/led.v Line: 30
-Info (12128): Elaborating entity "key" for hierarchy "key:u_key" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 487
+Info (12128): Elaborating entity "key" for hierarchy "key:u_key" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 498
 Warning (10230): Verilog HDL assignment warning at key.v(55): truncated value with size 32 to match size of target (30) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/key.v Line: 55
-Info (12128): Elaborating entity "pll" for hierarchy "pll:pll_inst" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 495
+Info (12128): Elaborating entity "pll" for hierarchy "pll:pll_inst" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 506
 Info (12128): Elaborating entity "altpll" for hierarchy "pll:pll_inst|altpll:altpll_component" File: C:/Users/JasonLiang/git/FPGA_Mario/par/ipcore/pll.v Line: 108
 Info (12130): Elaborated megafunction instantiation "pll:pll_inst|altpll:altpll_component" File: C:/Users/JasonLiang/git/FPGA_Mario/par/ipcore/pll.v Line: 108
 Info (12133): Instantiated megafunction "pll:pll_inst|altpll:altpll_component" with the following parameter: File: C:/Users/JasonLiang/git/FPGA_Mario/par/ipcore/pll.v Line: 108
@@ -1006,7 +1006,7 @@ Info (12133): Instantiated megafunction "pll:pll_inst|altpll:altpll_component" w
 Info (12021): Found 1 design units, including 1 entities, in source file db/pll_altpll.v
     Info (12023): Found entity 1: pll_altpll File: C:/Users/JasonLiang/git/FPGA_Mario/par/db/pll_altpll.v Line: 31
 Info (12128): Elaborating entity "pll_altpll" for hierarchy "pll:pll_inst|altpll:altpll_component|pll_altpll:auto_generated" File: c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:u_vga_driver" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 520
+Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:u_vga_driver" File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/mario.v Line: 531
 Warning (10230): Verilog HDL assignment warning at vga_driver.v(31): truncated value with size 32 to match size of target (1) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/vga_driver.v Line: 31
 Warning (10230): Verilog HDL assignment warning at vga_driver.v(32): truncated value with size 32 to match size of target (1) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/vga_driver.v Line: 32
 Warning (10230): Verilog HDL assignment warning at vga_driver.v(42): truncated value with size 32 to match size of target (1) File: C:/Users/JasonLiang/git/FPGA_Mario/rtl/vga_driver.v Line: 42
@@ -1021,15 +1021,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (15897): PLL "pll:pll_inst|altpll:altpll_component|pll_altpll:auto_generated|pll1" has parameter compensate_clock set to clock0 but port CLK[0] is not connected File: C:/Users/JasonLiang/git/FPGA_Mario/par/db/pll_altpll.v Line: 51
 Warning (15899): PLL "pll:pll_inst|altpll:altpll_component|pll_altpll:auto_generated|pll1" has parameters clk0_multiply_by and clk0_divide_by specified but port CLK[0] is not connected File: C:/Users/JasonLiang/git/FPGA_Mario/par/db/pll_altpll.v Line: 51
-Info (21057): Implemented 1043 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 907 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 17 output pins
-    Info (21061): Implemented 1019 logic cells
+    Info (21061): Implemented 883 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 33 warnings
-    Info: Peak virtual memory: 4860 megabytes
-    Info: Processing ended: Tue Dec 12 22:46:44 2023
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 4840 megabytes
+    Info: Processing ended: Wed Dec 13 01:21:13 2023
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:07
 
 
