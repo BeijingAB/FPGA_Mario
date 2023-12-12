@@ -1,0 +1,76 @@
+module vga_driver (
+	input clk_vga,
+	input rst_n,
+	
+	input [2:0] rgb,
+	output [9:0] x,
+	output [9:0] y,
+	
+	output vga_hs,
+	output vga_vs,
+	output [2:0] vga_rgb
+);
+
+parameter H_SYNC = 10'd96;
+parameter H_BACK = 10'd48;
+parameter H_DISP = 10'd640;
+parameter H_FRONT = 10'd16;
+parameter H_TOTAL = 10'd800;
+
+parameter V_SYNC = 10'd2;
+parameter V_BACK = 10'd33;
+parameter V_DISP = 10'd480;
+parameter V_FRONT = 10'd10;
+parameter V_TOTAL = 10'd525;
+
+
+// cnt for ver and hor
+reg [9:0] cnt_v;
+reg [9:0] cnt_h;
+
+assign vga_hs = (cnt_h < H_SYNC - 1) ? 1 : 0;
+assign vga_vs = (cnt_v < V_SYNC - 1) ? 1 : 0;
+
+// when the data need to send
+wire data_en;
+assign data_en = (cnt_h >= H_SYNC + H_BACK) && (cnt_h < H_SYNC + H_BACK + H_DISP) &&
+						(cnt_v >= V_SYNC + V_BACK) && (cnt_v < V_SYNC + V_BACK + V_DISP);
+assign vga_rgb = data_en ? rgb : 2'b0;
+
+// detect when need to request data, 1 clk before
+wire data_req;
+assign data_req = ((cnt_h >= H_SYNC + H_BACK - 1) && (cnt_h < H_SYNC + H_BACK + H_DISP - 1) &&
+						(cnt_v >= V_SYNC + V_BACK) && (cnt_v < V_SYNC + V_BACK + V_DISP)) ? 1 : 0;	
+assign x = data_req ? (cnt_h - (H_SYNC + H_BACK - 1)) : 0;
+assign y = data_req ? (cnt_v - (V_SYNC + V_BACK - 1)) : 0;
+
+// counter for Vsync and Hsync
+always @ (posedge clk_vga) begin
+	if (!rst_n)
+		cnt_h <= 0;
+	else begin
+		if (cnt_h < H_TOTAL - 1)
+			cnt_h <= cnt_h + 1;
+		else
+			cnt_h <= 0;
+	end
+end
+
+always @ (posedge clk_vga) begin
+	if (!rst_n)
+		cnt_v <= 0;
+	else begin
+		if (cnt_h == H_TOTAL - 1) begin
+			if (cnt_v < V_TOTAL - 1)
+				cnt_v <= cnt_v + 1;
+			else
+				cnt_v <= 0;
+		end else
+			cnt_v <= cnt_v;
+	end
+end
+
+
+
+
+endmodule

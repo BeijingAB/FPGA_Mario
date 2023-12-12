@@ -25,7 +25,7 @@ assign sys_rst_n = locked & rst_n;
 // clk for vga driver
 wire clk_25m;
 
-parameter DELAY_10MS = 30'd500_000;
+parameter DELAY_10MS = 30'd250_000;
 parameter BRICK_WIDTH = 40;
 parameter MAP_MAX_LEN = 1000;
 parameter MAX_JMP = 200; // max jmp height
